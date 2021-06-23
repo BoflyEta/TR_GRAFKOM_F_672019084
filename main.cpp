@@ -3,7 +3,7 @@
 #include <windows.h>
 
 int is_depth;
-
+//IKI TAK EDIT
 float xrot = 0.0f;
 float yrot = 0.0f;
 float xdiff = 0.0f;
