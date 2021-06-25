@@ -3,8 +3,7 @@
 #include <windows.h>
 
 int is_depth;
-//IKI TAK EDIT
-//TEEEEEEESSSSSSSSSSSSSSTTTTTTTTTTTT
+
 float xrot = 0.0f;
 float yrot = 0.0f;
 float xdiff = 0.0f;
@@ -14,9 +13,9 @@ bool mouseDown = false;
 void myInit(void){
 	glClearColor(0.0, 0.0, 0.0, 0.0);
 	glMatrixMode(GL_PROJECTION);
-	glEnable(GL_LIGHTING);
-	glEnable(GL_COLOR_MATERIAL);
-	glEnable(GL_LIGHT0);
+	//glEnable(GL_LIGHTING);
+	//glEnable(GL_COLOR_MATERIAL);
+	//glEnable(GL_LIGHT0);
 	glEnable(GL_DEPTH_TEST);
 	is_depth=1;
 	glMatrixMode(GL_MODELVIEW);
@@ -25,6 +24,7 @@ void myInit(void){
 }
 
 void tampil(void){
+	//keyboard
 	//if(is_depth) glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	//else glClear(GL_COLOR_BUFFER_BIT);
 	
@@ -103,7 +103,7 @@ void idle(){
 	glutPostRedisplay();
 }
 
-/*void keyboard(unsigned char key, int x, int y){
+void keyboard(unsigned char key, int x, int y){
 	switch(key){
 		case 'w':
 		case 'W':
@@ -155,7 +155,7 @@ void idle(){
 			}
 	}
 	tampil();
-}*/
+}
 
 void mouse(int button, int state, int x, int y){
 	if(button == GLUT_LEFT_BUTTON && state == GLUT_DOWN){
@@ -195,7 +195,7 @@ int main(int argc, char **argv){
 	glutDisplayFunc(tampil);
 	glutReshapeFunc(ukuran);
 	
-	//glutKeyboardFunc(keyboard);
+	glutKeyboardFunc(keyboard);
 	
 	glutMouseFunc(mouse);
 	glutMotionFunc(mouseMotion);
