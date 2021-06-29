@@ -3,16 +3,13 @@
 #include <GL/glut.h>
 #include <stdlib.h>
 #define DEG2RAD 3.14159/180.0
-
 int is_depth;
 int i;
-
 float xrot = 0.0f;
 float yrot = 0.0f;
 float xdiff = 0.0f;
 float ydiff = 0.0f;
 bool mouseDown = false;
-
 void myInit(void){
 	glClearColor(0.0, 1.0, 1.0, 0.0);
 	glMatrixMode(GL_PROJECTION);
@@ -23,20 +20,21 @@ void myInit(void){
 	is_depth=1;
 	glMatrixMode(GL_MODELVIEW);
 	glPointSize(9.0);
+	glLineWidth(6.0f);
 	glLineWidth(1.0f);
 }
 
 void BatasBangunan(void){
 	glBegin(GL_LINE_LOOP);//kiri
 	glColor3f (1 , 0 , 0);
-	glVertex3f(-1000, -40, -150.0);
-	glVertex3f(-700, -40, -550.0);
-	glVertex3f(-200, -40, -350.0);
-	glVertex3f(-50, -40, -550.0);
-	
-	glVertex3f(205, -40, -150.0);
-	glVertex3f(155, -40, 10.0);
-	glVertex3f(-1000, -40, 10.0);
+	glVertex3f(1000, -40, -150.0);
+	glVertex3f(700, -40, -550.0);
+	glVertex3f(200, -40, -350.0);
+	glVertex3f(50, -40, -550.0);
+
+	glVertex3f(-205, -40, -150.0);
+	glVertex3f(-155, -40, 10.0);
+	glVertex3f(1000, -40, 10.0);
 	glEnd();
 }
 
@@ -58,7 +56,6 @@ void DindingPembatasSisiKanan(int x, int y, int pembatas, int pembatasTengah){
 		glVertex3f(x + 20 + (i*70), y + 30, 15);//kanan atas
 		glVertex3f(x + (i*70), y + 30, 15);//kiri atas
 		glEnd();
-
 		glBegin(GL_QUADS); //depan
 		glColor3f (0.4519607843137255 , 0.4519607843137255 , 0.4519607843137255);
 		glVertex3f(x + (i*70), y, 15.0);//kiri bawah
@@ -136,7 +133,6 @@ void DindingPembatasSisiKanan(int x, int y, int pembatas, int pembatasTengah){
 		glVertex3f(x + 38 + (i*70), y + 20, 15);//kanan atas
 		glVertex3f(x + 30 + (i*70), y + 20, 15);//kiri atas
 		glEnd();
-
 		glBegin(GL_QUADS); //depan
 		glColor3f (0.4519607843137255 , 0.4519607843137255 , 0.4519607843137255);
 		glVertex3f(x + 30 + (i*70), y + 20, 15.0);//kiri bawah
@@ -153,7 +149,6 @@ void DindingPembatasSisiKanan(int x, int y, int pembatas, int pembatasTengah){
 		glVertex3f(x + 38 + (i*70), y + 20, 15.0);//kanan bawah
 		glEnd();
 	//kiri PERTENGAHAN
-
 	//tengah PERTENGAHAN
 		glBegin(GL_QUADS);//kiri
 		glColor3f (0.4319607843137255 , 0.4319607843137255 , 0.4319607843137255);
@@ -178,7 +173,6 @@ void DindingPembatasSisiKanan(int x, int y, int pembatas, int pembatasTengah){
 		glVertex3f(x + 52 + (i*70), y + 15, 17);//kanan atas
 		glVertex3f(x + 38 + (i*70), y + 15, 17);//kiri atas
 		glEnd();
-
 		glBegin(GL_QUADS); //depan
 		glColor3f (0.4319607843137255 , 0.4319607843137255 , 0.4319607843137255);
 		glVertex3f(x + 38 + (i*70), y + 15, 17.0);//kiri bawah
@@ -220,7 +214,6 @@ void DindingPembatasSisiKanan(int x, int y, int pembatas, int pembatasTengah){
 		glVertex3f(x + 60 + (i*70), y + 20, 15);//kanan atas
 		glVertex3f(x + 60 + (i*70), y + 20, 15);//kiri atas
 		glEnd();
-
 		glBegin(GL_QUADS); //depan
 		glColor3f (0.4519607843137255 , 0.4519607843137255 , 0.4519607843137255);
 		glVertex3f(x + 52 + (i*70), y + 20, 15.0);//kiri bawah
@@ -239,7 +232,6 @@ void DindingPembatasSisiKanan(int x, int y, int pembatas, int pembatasTengah){
 	//kanan PERTENGAHAN
 	}
 }
-
 void DindingSisiKanan(){
 	//--------------sebelah kanannya pintu masuk--------------
 	glBegin(GL_QUADS);
@@ -284,7 +276,6 @@ void DindingSisiKanan(){
 	
 	
 }
-
 void tampil(void){
 	//keyboard
 	//if(is_depth) glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -296,10 +287,10 @@ void tampil(void){
 	glRotatef(xrot, 1.0f, 0.0f, 0.0f);
 	glRotatef(yrot, 0.0f, 1.0f, 0.0f);
 	glPushMatrix();
-	
+
 	BatasBangunan();
 	DindingSisiKanan();
-	
+
 	/*//--------------hiasan kecil--------------
 	glBegin(GL_QUADS);//kiri
 	glColor3f (0.4319607843137255 , 0.4319607843137255 , 0.4319607843137255);
@@ -316,7 +307,6 @@ void tampil(void){
 	glVertex3f(-200.0, -40.0, 15);//kanan atas
 	glVertex3f(-205.0, -40.0, 15);//kiri atas
 	glEnd();
-
 	glBegin(GL_QUADS); //depan
 	glColor3f (0.4319607843137255 , 0.4319607843137255 , 0.4319607843137255);
 	glVertex3f(-205.0, -55.0, 15.0);//kiri bawah
@@ -338,7 +328,6 @@ void tampil(void){
 	
 	glutSwapBuffers();
 }
-
 void idle(){
 	if(!mouseDown){
 		xrot += 0.3f;
@@ -346,7 +335,6 @@ void idle(){
 	}
 	glutPostRedisplay();
 }
-
 void keyboard(unsigned char key, int x, int y){
 	switch(key){
 		case 'w':
@@ -400,7 +388,6 @@ void keyboard(unsigned char key, int x, int y){
 	}
 	tampil();
 }
-
 void mouse(int button, int state, int x, int y){
 	if(button == GLUT_LEFT_BUTTON && state == GLUT_DOWN){
 		mouseDown = true;
@@ -410,7 +397,6 @@ void mouse(int button, int state, int x, int y){
 		mouseDown = false;
 	}
 }
-
 void mouseMotion(int x, int y){
 	if(!mouseDown){
 		xrot = y + ydiff;
@@ -418,13 +404,13 @@ void mouseMotion(int x, int y){
 		glutPostRedisplay();
 	}	
 }
-
 void ukuran(int lebar, int tinggi){
 	if(tinggi == 0) tinggi = 1;
-	
+
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluPerspective(1000.0, lebar/tinggi, 100.0, 50000.0);
+	gluPerspective(100.0, lebar/tinggi, 10.0, 1500.0);
+	glTranslatef(0.0, 0.0, -250.0);
 	glTranslatef(500.0, 500.0, -1000.0);
 	glMatrixMode(GL_MODELVIEW);
 }
@@ -432,6 +418,7 @@ void ukuran(int lebar, int tinggi){
 int main(int argc, char **argv){
 	glutInit(&argc,argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+	glutInitWindowSize(800,600);
 	glutInitWindowSize(1500,600);
 	glutInitWindowPosition(250,80);
 	glutCreateWindow("3D");
