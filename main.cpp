@@ -23,7 +23,21 @@ void myInit(void){
 	is_depth=1;
 	glMatrixMode(GL_MODELVIEW);
 	glPointSize(9.0);
-	glLineWidth(6.0f);
+	glLineWidth(1.0f);
+}
+
+void BatasBangunan(void){
+	glBegin(GL_LINE_LOOP);//kiri
+	glColor3f (1 , 0 , 0);
+	glVertex3f(-1000, -40, -150.0);
+	glVertex3f(-700, -40, -550.0);
+	glVertex3f(-200, -40, -350.0);
+	glVertex3f(-50, -40, -550.0);
+	
+	glVertex3f(205, -40, -150.0);
+	glVertex3f(155, -40, 10.0);
+	glVertex3f(-1000, -40, 10.0);
+	glEnd();
 }
 
 void DindingPembatasSisiKanan(int x, int y, int pembatas, int pembatasTengah){
@@ -283,6 +297,7 @@ void tampil(void){
 	glRotatef(yrot, 0.0f, 1.0f, 0.0f);
 	glPushMatrix();
 	
+	BatasBangunan();
 	DindingSisiKanan();
 	
 	/*//--------------hiasan kecil--------------
@@ -409,15 +424,15 @@ void ukuran(int lebar, int tinggi){
 	
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluPerspective(100.0, lebar/tinggi, 10.0, 5000.0);
-	glTranslatef(0.0, 0.0, -250.0);
+	gluPerspective(1000.0, lebar/tinggi, 100.0, 50000.0);
+	glTranslatef(500.0, 500.0, -1000.0);
 	glMatrixMode(GL_MODELVIEW);
 }
 
 int main(int argc, char **argv){
 	glutInit(&argc,argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
-	glutInitWindowSize(800,600);
+	glutInitWindowSize(1500,600);
 	glutInitWindowPosition(250,80);
 	glutCreateWindow("3D");
 	myInit();
