@@ -33,7 +33,7 @@ void BatasBangunan(void){
 	glVertex3f(50, -40, -550.0);
 
 	glVertex3f(-205, -40, -150.0);
-	glVertex3f(-155, -40, 10.0);
+	glVertex3f(-200, -40, 10.0);
 	glVertex3f(1000, -40, 10.0);
 	glEnd();
 }
