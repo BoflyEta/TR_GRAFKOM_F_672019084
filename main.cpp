@@ -5,6 +5,9 @@
 #define DEG2RAD 3.14159/180.0
 int is_depth;
 int i;
+
+int kbmouse = 0;
+
 float xrot = 0.0f;
 float yrot = 0.0f;
 float xdiff = 0.0f;
@@ -25,7 +28,90 @@ void myInit(void){
 }
 
 
+void gedungKiri1(){
+	//batas belakang
+	glBegin(GL_QUADS);
+	glColor3f (0, 0, 0);
+	glVertex3f(-300, -70, -350.0);
+	glVertex3f(220, -70, -550.0);
+	glVertex3f(220, 440, -550.0);
+	glVertex3f(-300, 440, -350.0);
+	glEnd();
+	
+	//sekat jendela vertikal
+	for(i = 0; i < 7; i++){
+		glBegin(GL_QUADS);
+		glColor3f (1, 1, 1);
+		glVertex3f(-345 + (i*80.84), 80, -410.0 - (i*33.3));//kanan bawah
+		glVertex3f(-310 + (i*80.84), 80, -417.5 - (i*33.3));//kiri bawah
+		glVertex3f(-310 + (i*80.84), 440, -417.5 - (i*33.3));//kiri atas
+		glVertex3f(-345 + (i*80.84), 440, -410.0 - (i*33.3));//kanan atas
+		glEnd();
+	}
+	
+	//sekat bawah jendela horizontal
+	glBegin(GL_QUADS);
+	glColor3f (1, 1, 1);
+	glVertex3f(-345, 80, -410.0);
+	glVertex3f(175, 80, -617.5);
+	glVertex3f(175, 170, -617.5);
+	glVertex3f(-345, 170, -410.0);
+	glEnd();
+	
+	//sekat jendela horizontal
+	for(i = 0; i<3; i++){
+		glBegin(GL_QUADS);
+		glColor3f (1, 1, 1);
+		glVertex3f(-345, 240 + (i * 90), -410.0);
+		glVertex3f(175, 240 + (i * 90), -617.5);
+		glVertex3f(175, 260 + (i * 90), -617.5);
+		glVertex3f(-345, 260 + (i * 90), -410.0);
+		glEnd();
+	}
+	
+	//tembok kiri
+	glBegin(GL_QUADS);
+	glColor3f (1, 1, 1);
+	glVertex3f(220, 440, -550.0);
+	glVertex3f(175, 440, -617.5);
+	glVertex3f(175, -70, -617.5);
+	glVertex3f(220, -70, -550.0);
+	glEnd();
+	
+	//tembok atas
+	glBegin(GL_QUADS);
+	glColor3f (1, 1, 1);
+	glVertex3f(220, 440, -550.0);
+	glVertex3f(175, 440, -617.5);
+	glVertex3f(-345, 440, -410.0);
+	glVertex3f(-300, 440, -350.0);
+	glEnd();
+	
+	//tembok bawah
+	glBegin(GL_QUADS);
+	glColor3f (1, 1, 1);
+	glVertex3f(220, 80, -550.0);
+	glVertex3f(175, 80, -617.5);
+	glVertex3f(-345, 80, -410.0);
+	glVertex3f(-300, 80, -350.0);
+	glEnd();
+}
 
+void gedungKiri2(){
+	//batas belakang
+	glBegin(GL_QUADS);//kiri
+	glColor3f (0, 0, 0);
+	glVertex3f(-300, -70, -350.0);
+	glVertex3f(-450, -70, -550.0);
+	glVertex3f(-450, 440, -550.0);
+	glVertex3f(-300, 440, -350.0);
+	glEnd();
+}
+
+void gedungKiri(){
+	gedungKiri1();
+	gedungKiri2();
+}
 
 
 void BatasBangunan(void){
@@ -33,13 +119,26 @@ void BatasBangunan(void){
 	glColor3f (1 , 0 , 0);
 	
 	glVertex3f(500, -70, -150.0);
-	glVertex3f(200, -70, -550.0);
+	glVertex3f(220, -70, -550.0);
 	glVertex3f(-300, -70, -350.0);
 	glVertex3f(-450, -70, -550.0);
 	
 	glVertex3f(-705, -70, -150.0);
 	glVertex3f(-700, -70, 10.0);
 	glVertex3f(500, -70, 10.0);
+	glEnd();
+	
+	glBegin(GL_LINE_LOOP);
+	glColor3f (1 , 0 , 0);
+	
+	glVertex3f(500, 440, -150.0);
+	glVertex3f(220, 440, -550.0);
+	glVertex3f(-300, 440, -350.0);
+	glVertex3f(-450, 440, -550.0);
+	
+	glVertex3f(-705, 440, -150.0);
+	glVertex3f(-700, 440, 10.0);
+	glVertex3f(500, 440, 10.0);
 	glEnd();
 }
 
@@ -884,16 +983,22 @@ void pintumasuksamping(){
 
 void tampil(void){
 	//keyboard
-	//if(is_depth) glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	//else glClear(GL_COLOR_BUFFER_BIT);
+	if(kbmouse){
+		if(is_depth) glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		else glClear(GL_COLOR_BUFFER_BIT);
+	}
 	
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glLoadIdentity();
-	gluLookAt(0.0f,0.0f,3.0f,0.0f,0.0f,0.0f,0.0f,1.0f,0.0f);
-	glRotatef(xrot, 1.0f, 0.0f, 0.0f);
-	glRotatef(yrot, 0.0f, 1.0f, 0.0f);
-	glPushMatrix();
+	//mouse
+	else{
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		glLoadIdentity();
+		gluLookAt(0.0f,0.0f,3.0f,0.0f,0.0f,0.0f,0.0f,1.0f,0.0f);
+		glRotatef(xrot, 1.0f, 0.0f, 0.0f);
+		glRotatef(yrot, 0.0f, 1.0f, 0.0f);
+		glPushMatrix();
+	}
 
+	gedungKiri();
 	BatasBangunan();
 	DindingSisiKanan();
 	dindingorensebelahKANAN();
@@ -928,46 +1033,71 @@ void idle(){
 
 void keyboard(unsigned char key, int x, int y){
 	switch(key){
+		//zoom_in
 		case 'w':
 		case 'W':
 			glTranslatef(0.0,0.0,3.0);
 			break;
-		case 'd':
-		case 'D':
-			glTranslatef(3.0,0.0,3.0);
-			break;
-		case 's':
-		case 'S':
-			glTranslatef(0.0,0.0,-3.0);
-			break;
+		
+		//geser kiri
 		case 'a':
 		case 'A':
 			glTranslatef(-3.0,0.0,0.0);
 			break;
+			
+		//zoom_out
+		case 's':
+		case 'S':
+			glTranslatef(0.0,0.0,-3.0);
+			break;
+			
+		//geser kanan
+		case 'd':
+		case 'D':
+			glTranslatef(3.0,0.0,0.0);
+			break;
+		
+		//naik
 		case'7':
 			glTranslatef(0.0,3.0,0.0);
 			break;
+		
+		//turun
 		case'9':
 			glTranslatef(0.0,-3.0,0.0);
 			break;
+		
+		//miring depan
 		case'2':
 			glRotatef(2.0, 1.0, 0.0, 0.0);
 			break;
+		
+		//miring belakang
 		case'8':
 			glRotatef(-2.0, 1.0, 0.0, 0.0);
 			break;
+		
+		//miring depan kanan
 		case'6':
 			glRotatef(2.0, 0.0, 1.0, 0.0);
 			break;
+		
+		//miring depan kiri
 		case'4':
 			glRotatef(-2.0, 0.0, 1.0, 0.0);
 			break;
+			
+		//miring kiri
 		case'1':
 			glRotatef(2.0, 0.0, 0.0, 1.0);
 			break;
+			
+		//miring kanan
 		case'3':
 			glRotatef(-2.0, 0.0, 0.0, 1.0);
 			break;
+			
+		//on off gl depth
 		case'5':
 			if(is_depth){
 				is_depth = 0;
@@ -976,6 +1106,16 @@ void keyboard(unsigned char key, int x, int y){
 				is_depth = 1;
 				glEnable(GL_DEPTH_TEST);
 			}
+			break;
+		
+		//switch keyboard - mouse
+		case'-':
+			if(kbmouse){
+				kbmouse = 0;
+			}else{
+				kbmouse = 1;
+			}
+			break;
 	}
 	tampil();
 }
