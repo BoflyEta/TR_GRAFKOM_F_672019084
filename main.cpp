@@ -1462,7 +1462,7 @@ void gedungKiri(){
 
 
 void BatasBangunan(void){
-	glBegin(GL_LINE_LOOP);
+	/*glBegin(GL_LINE_LOOP);
 	glColor3f (1 , 0 , 0);
 	
 	glVertex3f(500, -70, -150.0);
@@ -1473,7 +1473,7 @@ void BatasBangunan(void){
 	glVertex3f(-705, -70, -150.0);
 	glVertex3f(-690, -70, 10.0);
 	glVertex3f(500, -70, 10.0);
-	glEnd();
+	glEnd();*/
 	
 	glBegin(GL_LINE_LOOP);
 	glColor3f (1 , 0 , 0);
@@ -3697,6 +3697,17 @@ void tampil(void){
 		glRotatef(yrot, 0.0f, 1.0f, 0.0f);
 		glPushMatrix();
 	}
+	
+	//alas
+	glBegin(GL_POLYGON);
+	glColor3f(0.91,0.91,0.91);
+	glVertex3f(-850, -70, 200);//kiri bawwah
+	glVertex3f(-900, -70, -100);//kiri atas
+	glVertex3f(-600, -70, -600);//pertengahan kiri
+	glVertex3f(-300, -70, -1000);//pertengahan kanan
+	glVertex3f(800, -70, -500);//kanan atas
+	glVertex3f(800, -70, 200);//kanan bawah
+	glEnd();
 
 	BatasBangunan();
 	gedungKiri();
