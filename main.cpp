@@ -3538,6 +3538,7 @@ void tampil(void){
 	gedungKiri();
 	gedungKanan();
 	gedungDepan();
+	gedungBelakang();
 	
 	glPushMatrix();
 	glPopMatrix();
