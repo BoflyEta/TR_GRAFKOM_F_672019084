@@ -1,3 +1,9 @@
+//Anggota Kelompok : 
+//672019084	Carens Kurniawan Wijaya
+//672019149	Theodore Noveiota 
+//672019284	Hafid Ahsani
+//672019315	Bofly Ebenhaezer Eta
+
 #include <windows.h>
 #include <math.h>
 #include <GL/glut.h>
