@@ -1034,16 +1034,30 @@ void gedungDepan(){
 	
 	glBegin(GL_POLYGON);
 	glColor3f(0.81, 0.81, 0.81);
-	glVertex3f(-705, 226, -180.0);
+	glVertex3f(-705, 226, -150.0);
 	glVertex3f(-690, 226, 45.0);
 	glVertex3f(-750.0+20, 226.0, 37);
 	glVertex3f(-800.0+20, 226.0, -10);
 	glVertex3f(-800.0+20, 226.0, -95);
 	glVertex3f(-780.0+20, 226.0, -110);
+	glVertex3f(-705, 226.0, -180);
 	glEnd();
 	
-	//LANTAI 3 START
 
+	//lantai teras
+	glBegin(GL_POLYGON);
+	glColor3f (0.4929411764705882 , 0.4929411764705882 , 0.4929411764705882);
+	glVertex3f(-730.0, -45.0, -160);
+	glVertex3f(-765.0, -45.0, -100);
+	glVertex3f(-765.0, -45.0, -20.0);
+	glVertex3f(-707.0, -45.0, 40.0);
+	glVertex3f(-707.0, -45.0, 105.0);
+	glVertex3f(-790.0, -45.0, 30.0);
+	glVertex3f(-800.0, -45.0, -100.0);
+	glVertex3f(-750.0, -45.0, -230.0);
+	glEnd();
+	
+	
 	//tembok tangga kanan
 	glBegin(GL_POLYGON);
 	glColor3f(0.41, 0.41, 0.41);
@@ -1937,18 +1951,19 @@ void gedungKiri(){
 
 
 void BatasBangunan(void){
-
+	
+	
 	glBegin(GL_POLYGON);
 	glColor3f(0.81, 0.81, 0.81);
 	
-	glVertex3f(500, 455, -150.0);
-	glVertex3f(220, 455, -550.0);
-	glVertex3f(-300, 455, -350.0);
-	glVertex3f(-450, 455, -550.0);
+	glVertex3f(500, 440, -150.0);
+	glVertex3f(220, 440, -550.0);
+	glVertex3f(-300, 440, -350.0);
+	glVertex3f(-450, 440, -550.0);
 	
-	glVertex3f(-705, 455, -150.0);
-	glVertex3f(-690, 455, 10.0);
-	glVertex3f(500, 455, 10.0);
+	glVertex3f(-705, 440, -150.0);
+	glVertex3f(-690, 440, 10.0);
+	glVertex3f(500, 440, 10.0);
 	glEnd();
 }
 
