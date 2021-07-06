@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #define DEG2RAD 3.14159/180.0
 int is_depth;
-int i,j,a,b;
+int i,j,a,b,c;
 
 int kbmouse = 0;
 
