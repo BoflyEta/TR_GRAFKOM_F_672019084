@@ -4345,8 +4345,7 @@ void ukuran(int lebar, int tinggi){
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluPerspective(100.0, lebar/tinggi, 10.0, 1500.0);
-	glTranslatef(0.0, 0.0, -1000.0);
-	//glTranslatef(500.0, 500.0, -1000.0);
+	glTranslatef(0.0, 0.0, -1500.0);
 	glMatrixMode(GL_MODELVIEW);
 }
 
@@ -4357,10 +4356,9 @@ void ukuran(int lebar, int tinggi){
 int main(int argc, char **argv){
 	glutInit(&argc,argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
-	glutInitWindowSize(800,600);
-	glutInitWindowSize(1500,600);
-	glutInitWindowPosition(250,80);
-	glutCreateWindow("3D");
+	glutInitWindowSize(1920,1080);
+	glutInitWindowPosition(0,0);
+	glutCreateWindow("HSE University Rusia");
 	myInit();
 	glutDisplayFunc(tampil);
 	glutReshapeFunc(ukuran);
