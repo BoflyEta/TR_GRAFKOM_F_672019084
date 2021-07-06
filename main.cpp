@@ -913,14 +913,14 @@ void gedungKiri1(){
 		glEnd();
 	}
 	
-	//tembok kiri
+	/*//tembok kiri
 	glBegin(GL_QUADS);
 	glColor3f (0.9333333333333333 , 0.9098039215686275 , 0.6666666666666667);
 	glVertex3f(220, 440, -550.0);
 	glVertex3f(175, 440, -617.5);
 	glVertex3f(175, -70, -617.5);
 	glVertex3f(220, -70, -550.0);
-	glEnd();
+	glEnd();*/
 	
 	//tembok kanan
 	glBegin(GL_QUADS);
